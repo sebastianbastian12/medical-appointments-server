@@ -12,11 +12,11 @@ POST http://localhost:3010/appointments HTTP/1.1
 Content-Type: application/json
 
 {
-    "patient": "Seferino Lopez",
-    "age": "65",
+    "patient": "Juan Mendoza",
+    "age": "35",
     "planType": "B",
-    "familyGroup": "No",
-    "Doctor": "Patricia Fernandez",
+    "familyGroup": "Yes",
+    "Doctor": "Pedro Rivera",
     "medicalCenter": "Suba",
     "medicalInsurance": "Sanitas"
 }

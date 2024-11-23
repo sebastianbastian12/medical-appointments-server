@@ -13,12 +13,7 @@ router.get(
   appointmentControllers.getSingleAppointment
 );
 
-router.post(
-  '/',
-  appointmentValidatorRules(),
-  validate,
-  appointmentControllers.postAppointment
-);
+router.post('/', appointmentControllers.postAppointment);
 
 router.put(
   '/:appointmentId',
