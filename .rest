@@ -1,0 +1,38 @@
+
+GET http://localhost:3010
+
+### Get contact by id
+GET http://localhost:3010/appointments HTTP/1.1
+
+### Get contact by id
+GET http://localhost:3010/appointments/674114df4d7be99131c14126 HTTP/1.1
+
+### Create contact
+POST http://localhost:3010/appointments HTTP/1.1
+Content-Type: application/json
+
+{
+    "patient": "Seferino Lopez",
+    "age": "65",
+    "planType": "B",
+    "familyGroup": "No",
+    "Doctor": "Patricia Fernandez",
+    "medicalCenter": "Suba",
+    "medicalInsurance": "Sanitas"
+}
+
+### PUT
+PUT http://localhost:3010/appointments/6741fe9dc928e85741887027 HTTP/1.1
+Content-Type: application/json
+{
+    "patient": "Seferino Lopez",
+    "age": "65",
+    "planType": "B",
+    "familyGroup": "No",
+    "Doctor": "Armando Mendoza",
+    "medicalCenter": "Suba",
+    "medicalInsurance": "Sanitas"
+}
+
+### Delete
+DELETE http://localhost:3010/appointments/6741f91d2c965fe22f8282e1 HTTP/1.1
