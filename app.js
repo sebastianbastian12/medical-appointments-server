@@ -2,7 +2,7 @@ const express = require('express');
 const mongodb = require('./data/database');
 const bodyParser = require('body-parser');
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3010;
 
 app.get('/', (req, res) => {
   res.send('Medical Appointments || Home Page');
@@ -30,7 +30,7 @@ mongodb.initDb((err) => {
     console.log(err);
   } else {
     app.listen(port, () => {
-      console.log(`Data base and web server working on port ${port}`);
+      console.log(`Data base and web server working on port || ${port}`);
     });
   }
 });
