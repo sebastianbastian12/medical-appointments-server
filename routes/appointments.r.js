@@ -1,32 +1,43 @@
 const router = require('express').Router();
-const { param } = require('express-validator');
-const { appointmentValidatorRules, validate } = require('../validator');
+const {
+  appointmentValidatorId,
+  createAppointmentValidator,
+  validate,
+} = require('../validator');
 const appointmentControllers = require('../controllers/appointments.controllers');
+const { isAuthenticated } = require('../authenticate');
 
-router.get('/', appointmentControllers.getAllAppointments);
+router.get('/', isAuthenticated, appointmentControllers.getAllAppointments);
 
 router.get(
   '/:appointmentId',
-  param('appointmentId').isMongoId().withMessage('Invalid appoinment id'),
-  appointmentValidatorRules(),
+  isAuthenticated,
+  appointmentValidatorId(),
   validate,
   appointmentControllers.getSingleAppointment
 );
 
-router.post('/', appointmentControllers.postAppointment);
+router.post(
+  '/',
+  isAuthenticated,
+  createAppointmentValidator(),
+  validate,
+  appointmentControllers.postAppointment
+);
 
 router.put(
   '/:appointmentId',
-  param('appointmentId').isMongoId().withMessage('Invalid appoinment id'),
-  appointmentValidatorRules(),
+  isAuthenticated,
+  appointmentValidatorId(),
+  createAppointmentValidator(),
   validate,
   appointmentControllers.updateAppointment
 );
 
 router.delete(
   '/:appointmentId',
-  param('appointmentId').isMongoId().withMessage('Invalid appoinment id'),
-  appointmentValidatorRules(),
+  isAuthenticated,
+  appointmentValidatorId(),
   validate,
   appointmentControllers.deleteAppointment
 );

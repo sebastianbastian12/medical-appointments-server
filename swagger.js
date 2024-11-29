@@ -6,11 +6,11 @@ const doc = {
     description: 'Swagger medical appointments api',
     version: '1.0.0',
   },
-  host: 'localhost:3010',
-  schemes: ['https', 'http'],
+  host: 'localhost:3010/appointments',
+  schemes: ['http', 'https'],
 };
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./index.js'];
+const endpointsFiles = ['./routes/appointments.r.js'];
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
