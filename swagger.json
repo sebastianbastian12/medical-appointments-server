@@ -5,11 +5,11 @@
     "description": "Swagger medical appointments api",
     "version": "1.0.0"
   },
-  "host": "medical-appointments-server.onrender.com",
+  "host": "localhost:3010/appointments",
   "basePath": "/",
   "schemes": [
-    "https",
-    "http"
+    "http",
+    "https"
   ],
   "paths": {
     "/": {
